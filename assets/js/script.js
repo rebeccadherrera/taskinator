@@ -225,19 +225,19 @@ var saveTasks = function() {
 };
 
 var loadTasks = function() {
-    localStorage.getItem("tasks", JSON.stringify(tasks));
+    var savedTasks = localStorage.getItem("tasks");
 
-    if (tasks === 0) {
-        setInterval.tasks[i];
+    if (!savedTasks) {
         return false;
     }
 
-    for (var i = 0; i < tasks.length; i++) {
-        console.log(tasksIdCounter);
-        console.log(tasks[i]);
-    }
-
     tasks = JSON.parse(tasks);
+
+    //loop through savedTasks array
+    for (var i =0; i < savedTasks.length; i++) {
+        //pass each task object into the 'createTaskEl()' function
+        createTaskEl(savedTasks[i]);
+    }
 
     var listItemEl = function() {
         listItemEl.className("task-item");
