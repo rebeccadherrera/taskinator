@@ -261,11 +261,16 @@ var taskActionsEl = function() {
     if (tasks[i].status === "to do") {
         listItemEl.querySelector("select[name='status-change']").selectedIndex === "0",
         tasksToDoEl.appendChild(tasksToDoEl);
-    } else if {
+    } else if (tasks[i].status === "in progress") {
         listItemEl.querySelector("select[name='status-change']").selectedIndex === "1",
         tasksInProgressEl.appendChild(listItemEl);
-    }
-}
+    } else if (tasks[i].status === "complete") {
+        listItemEl.querySelector("select[name='status-change']").selectedIndex === "2",
+        tasksCompletedEl.appendChild(listItemEl);
+        }
+
+    taskIdCounter++
+};
 
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
